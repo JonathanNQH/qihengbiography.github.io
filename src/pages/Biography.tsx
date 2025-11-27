@@ -48,19 +48,19 @@ const Biography = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8">
+    <div className="container mx-auto px-4 py-12 max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 font-sans">
       {/* Table of Contents for larger screens */}
       <TableOfContents sections={biographySections} activeSectionId={activeSectionId} />
 
       {/* Main Biography Content */}
       <div className="lg:col-span-1">
-        <h1 className="text-5xl font-extrabold text-center mb-10 text-gray-900 dark:text-gray-100">
+        <h1 className="text-6xl font-serif font-bold text-center mb-12 text-gray-900 dark:text-gray-100 leading-tight">
           The Life of a Remarkable Individual
         </h1>
 
-        <section id="early-life" className="mb-12" ref={(el) => (sectionRefs.current["early-life"] = el)}>
-          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Early Life and Childhood</h2>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <section id="early-life" className="mb-16" ref={(el) => (sectionRefs.current["early-life"] = el)}>
+          <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Early Life and Childhood</h2>
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             Born in a small, vibrant village nestled in the heart of rolling hills, our subject's early years were marked by curiosity and an insatiable thirst for knowledge. From a young age, they displayed an extraordinary aptitude for observation, often spending hours exploring the natural world around them, meticulously documenting their findings in a worn leather-bound journal. Their family, though modest, fostered an environment of intellectual freedom and encouraged their burgeoning talents.
           </p>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -68,9 +68,9 @@ const Biography = () => {
           </p>
         </section>
 
-        <section id="formative-years" className="mb-12" ref={(el) => (sectionRefs.current["formative-years"] = el)}>
-          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Formative Years and Education</h2>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <section id="formative-years" className="mb-16" ref={(el) => (sectionRefs.current["formative-years"] = el)}>
+          <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Formative Years and Education</h2>
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             As they transitioned into adolescence, their intellectual pursuits deepened. They left their village to attend a prestigious academy, where they specialized in theoretical physics and classical literature. It was during these years that they developed their unique interdisciplinary approach, believing that true understanding emerged from the synthesis of diverse fields. Their professors often spoke of their unparalleled ability to connect seemingly disparate concepts, weaving them into a coherent and compelling narrative.
           </p>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -78,12 +78,12 @@ const Biography = () => {
           </p>
         </section>
 
-        <section id="career-achievements" className="mb-12" ref={(el) => (sectionRefs.current["career-achievements"] = el)}>
-          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Career and Major Achievements</h2>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <section id="career-achievements" className="mb-16" ref={(el) => (sectionRefs.current["career-achievements"] = el)}>
+          <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Career and Major Achievements</h2>
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             Upon completing their education, they embarked on a career that would redefine their field. Their groundbreaking research in quantum mechanics led to several paradigm shifts, earning them international acclaim and numerous accolades, including the coveted Nobel Prize. Yet, they remained humble, always attributing their success to collaborative efforts and the support of their peers.
           </p>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             Not content with purely scientific pursuits, they also dedicated a significant portion of their life to humanitarian causes. They founded several non-profit organizations focused on global health and education, impacting millions of lives across continents. Their ability to inspire and mobilize others was legendary, turning ambitious visions into tangible realities.
           </p>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -91,9 +91,9 @@ const Biography = () => {
           </p>
         </section>
 
-        <section id="later-life-legacy" className="mb-12" ref={(el) => (sectionRefs.current["later-life-legacy"] = el)}>
-          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Later Life and Legacy</h2>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <section id="later-life-legacy" className="mb-16" ref={(el) => (sectionRefs.current["later-life-legacy"] = el)}>
+          <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Later Life and Legacy</h2>
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             In their later years, they retreated from the public eye, choosing to spend their time mentoring young scholars and writing philosophical treatises. Their memoirs, published posthumously, offered profound insights into their journey, their struggles, and their ultimate triumphs. They passed away peacefully, leaving behind a legacy that continues to inspire generations.
           </p>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
