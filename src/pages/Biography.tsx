@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import TableOfContents from "@/components/TableOfContents";
-import ImageModal from "@/components/ImageModal"; // Keep ImageModal for single image display
+import ImageModal from "@/components/ImageModal";
+import MobileMenu from "@/components/MobileMenu"; // Import the new MobileMenu component
 
 interface ImageItem {
   src: string;
@@ -70,8 +71,13 @@ const Biography = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 font-sans">
+      {/* Mobile Menu for small screens */}
+      <MobileMenu sections={biographySections} activeSectionId={activeSectionId} />
+
       {/* Table of Contents for larger screens */}
-      <TableOfContents sections={biographySections} activeSectionId={activeSectionId} />
+      <div className="hidden lg:block sticky top-4 w-64 pr-8 pt-20">
+        <TableOfContents sections={biographySections} activeSectionId={activeSectionId} />
+      </div>
 
       {/* Main Biography Content */}
       <div className="lg:col-span-1">
