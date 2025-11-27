@@ -10,9 +10,10 @@ interface Section {
 
 interface TableOfContentsProps {
   sections: Section[];
+  activeSectionId?: string; // New prop to indicate the active section
 }
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
+const TableOfContents: React.FC<TableOfContentsProps> = ({ sections, activeSectionId }) => {
   return (
     <nav className="sticky top-4 hidden lg:block w-64 pr-8">
       <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">On this page</h3>
@@ -21,7 +22,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
           <li key={section.id}>
             <a
               href={`#${section.id}`}
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base"
+              className={cn(
+                "block text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-base",
+                activeSectionId === section.id && "font-bold text-blue-600 dark:text-blue-400" // Apply active style
+              )}
             >
               {section.title}
             </a>

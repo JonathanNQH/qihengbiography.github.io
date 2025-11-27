@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MadeWithDyad } from "@/components/made-with-dyad";
-import TableOfContents from "@/components/TableOfContents"; // Import the new component
+import TableOfContents from "@/components/TableOfContents";
 
 const biographySections = [
   { id: "early-life", title: "Early Life and Childhood" },
@@ -12,10 +12,45 @@ const biographySections = [
 ];
 
 const Biography = () => {
+  const [activeSectionId, setActiveSectionId] = useState<string | undefined>(undefined);
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSectionId(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px", // Trigger when section is roughly in the middle of the viewport
+        threshold: 0,
+      }
+    );
+
+    biographySections.forEach((section) => {
+      const ref = sectionRefs.current[section.id];
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      biographySections.forEach((section) => {
+        const ref = sectionRefs.current[section.id];
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8">
       {/* Table of Contents for larger screens */}
-      <TableOfContents sections={biographySections} />
+      <TableOfContents sections={biographySections} activeSectionId={activeSectionId} />
 
       {/* Main Biography Content */}
       <div className="lg:col-span-1">
@@ -23,7 +58,7 @@ const Biography = () => {
           The Life of a Remarkable Individual
         </h1>
 
-        <section id="early-life" className="mb-12">
+        <section id="early-life" className="mb-12" ref={(el) => (sectionRefs.current["early-life"] = el)}>
           <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Early Life and Childhood</h2>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
             Born in a small, vibrant village nestled in the heart of rolling hills, our subject's early years were marked by curiosity and an insatiable thirst for knowledge. From a young age, they displayed an extraordinary aptitude for observation, often spending hours exploring the natural world around them, meticulously documenting their findings in a worn leather-bound journal. Their family, though modest, fostered an environment of intellectual freedom and encouraged their burgeoning talents.
@@ -33,7 +68,7 @@ const Biography = () => {
           </p>
         </section>
 
-        <section id="formative-years" className="mb-12">
+        <section id="formative-years" className="mb-12" ref={(el) => (sectionRefs.current["formative-years"] = el)}>
           <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Formative Years and Education</h2>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
             As they transitioned into adolescence, their intellectual pursuits deepened. They left their village to attend a prestigious academy, where they specialized in theoretical physics and classical literature. It was during these years that they developed their unique interdisciplinary approach, believing that true understanding emerged from the synthesis of diverse fields. Their professors often spoke of their unparalleled ability to connect seemingly disparate concepts, weaving them into a coherent and compelling narrative.
@@ -43,7 +78,7 @@ const Biography = () => {
           </p>
         </section>
 
-        <section id="career-achievements" className="mb-12">
+        <section id="career-achievements" className="mb-12" ref={(el) => (sectionRefs.current["career-achievements"] = el)}>
           <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Career and Major Achievements</h2>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
             Upon completing their education, they embarked on a career that would redefine their field. Their groundbreaking research in quantum mechanics led to several paradigm shifts, earning them international acclaim and numerous accolades, including the coveted Nobel Prize. Yet, they remained humble, always attributing their success to collaborative efforts and the support of their peers.
@@ -56,7 +91,7 @@ const Biography = () => {
           </p>
         </section>
 
-        <section id="later-life-legacy" className="mb-12">
+        <section id="later-life-legacy" className="mb-12" ref={(el) => (sectionRefs.current["later-life-legacy"] = el)}>
           <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">Later Life and Legacy</h2>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
             In their later years, they retreated from the public eye, choosing to spend their time mentoring young scholars and writing philosophical treatises. Their memoirs, published posthumously, offered profound insights into their journey, their struggles, and their ultimate triumphs. They passed away peacefully, leaving behind a legacy that continues to inspire generations.
