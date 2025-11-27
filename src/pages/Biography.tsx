@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { MadeWithDyad } from "@/components/made-with-dyad";
 import TableOfContents from "@/components/TableOfContents";
 import ImageModal from "@/components/ImageModal";
 import MobileMenu from "@/components/MobileMenu";
@@ -224,7 +223,6 @@ const Biography = () => {
             </div>
           </section>
         ))}
-        <MadeWithDyad />
       </div>
 
       {selectedImageForModal && (
