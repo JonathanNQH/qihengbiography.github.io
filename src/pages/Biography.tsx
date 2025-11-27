@@ -3,12 +3,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import TableOfContents from "@/components/TableOfContents";
+import ImageGallery from "@/components/ImageGallery"; // Import the new ImageGallery component
 
 const biographySections = [
   { id: "early-life", title: "Early Life and Childhood" },
   { id: "formative-years", title: "Formative Years and Education" },
   { id: "career-achievements", title: "Career and Major Achievements" },
+  { id: "visual-journey", title: "A Visual Journey" }, // New section for images
   { id: "later-life-legacy", title: "Later Life and Legacy" },
+];
+
+const images = [
+  { src: "https://picsum.photos/id/237/400/300", alt: "Early Life Scene" },
+  { src: "https://picsum.photos/id/1018/400/300", alt: "Formative Years Study" },
+  { src: "https://picsum.photos/id/1040/400/300", alt: "Career Milestone" },
+  { src: "https://picsum.photos/id/1060/400/300", alt: "Humanitarian Work" },
+  { src: "https://picsum.photos/id/1084/400/300", alt: "Mentorship Moment" },
+  { src: "https://picsum.photos/id/1074/400/300", alt: "Reflective Period" },
 ];
 
 const Biography = () => {
@@ -89,6 +100,15 @@ const Biography = () => {
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
             Their work was characterized by an unwavering commitment to ethical principles and a deep empathy for the human condition. They believed that true progress was measured not just by scientific advancement but by the betterment of society as a whole.
           </p>
+        </section>
+
+        {/* New Image Gallery Section */}
+        <section id="visual-journey" className="mb-16" ref={(el) => (sectionRefs.current["visual-journey"] = el)}>
+          <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">A Visual Journey</h2>
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+            Explore key moments and inspirations from their life through a curated collection of images.
+          </p>
+          <ImageGallery images={images} />
         </section>
 
         <section id="later-life-legacy" className="mb-16" ref={(el) => (sectionRefs.current["later-life-legacy"] = el)}>
