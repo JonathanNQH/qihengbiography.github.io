@@ -3,28 +3,38 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import TableOfContents from "@/components/TableOfContents";
-import ImageGallery from "@/components/ImageGallery"; // Import the new ImageGallery component
+import ImageModal from "@/components/ImageModal"; // Keep ImageModal for single image display
+
+interface ImageItem {
+  src: string;
+  alt: string;
+}
 
 const biographySections = [
   { id: "early-life", title: "Early Life and Childhood" },
   { id: "formative-years", title: "Formative Years and Education" },
   { id: "career-achievements", title: "Career and Major Achievements" },
-  { id: "visual-journey", title: "A Visual Journey" }, // New section for images
   { id: "later-life-legacy", title: "Later Life and Legacy" },
 ];
 
-const images = [
-  { src: "https://picsum.photos/id/237/400/300", alt: "Early Life Scene" },
-  { src: "https://picsum.photos/id/1018/400/300", alt: "Formative Years Study" },
-  { src: "https://picsum.photos/id/1040/400/300", alt: "Career Milestone" },
-  { src: "https://picsum.photos/id/1060/400/300", alt: "Humanitarian Work" },
-  { src: "https://picsum.photos/id/1084/400/300", alt: "Mentorship Moment" },
-  { src: "https://picsum.photos/id/1074/400/300", alt: "Reflective Period" },
-];
+const sectionImages: { [key: string]: ImageItem } = {
+  "early-life": { src: "https://picsum.photos/id/237/600/400", alt: "Childhood Home" },
+  "formative-years": { src: "https://picsum.photos/id/1018/600/400", alt: "University Campus" },
+  "career-achievements": { src: "https://picsum.photos/id/1040/600/400", alt: "Award Ceremony" },
+  "later-life-legacy": { src: "https://picsum.photos/id/1074/600/400", alt: "Reflective Study" },
+};
 
 const Biography = () => {
   const [activeSectionId, setActiveSectionId] = useState<string | undefined>(undefined);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  const [selectedImageForModal, setSelectedImageForModal] = useState<ImageItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleImageClick = (image: ImageItem) => {
+    setSelectedImageForModal(image);
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,6 +81,14 @@ const Biography = () => {
 
         <section id="early-life" className="mb-16" ref={(el) => (sectionRefs.current["early-life"] = el)}>
           <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Early Life and Childhood</h2>
+          {sectionImages["early-life"] && (
+            <img
+              src={sectionImages["early-life"].src}
+              alt={sectionImages["early-life"].alt}
+              className="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer mb-6 transition-transform duration-300 hover:scale-[1.01]"
+              onClick={() => handleImageClick(sectionImages["early-life"])}
+            />
+          )}
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             Born in a small, vibrant village nestled in the heart of rolling hills, our subject's early years were marked by curiosity and an insatiable thirst for knowledge. From a young age, they displayed an extraordinary aptitude for observation, often spending hours exploring the natural world around them, meticulously documenting their findings in a worn leather-bound journal. Their family, though modest, fostered an environment of intellectual freedom and encouraged their burgeoning talents.
           </p>
@@ -81,6 +99,14 @@ const Biography = () => {
 
         <section id="formative-years" className="mb-16" ref={(el) => (sectionRefs.current["formative-years"] = el)}>
           <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Formative Years and Education</h2>
+          {sectionImages["formative-years"] && (
+            <img
+              src={sectionImages["formative-years"].src}
+              alt={sectionImages["formative-years"].alt}
+              className="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer mb-6 transition-transform duration-300 hover:scale-[1.01]"
+              onClick={() => handleImageClick(sectionImages["formative-years"])}
+            />
+          )}
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             As they transitioned into adolescence, their intellectual pursuits deepened. They left their village to attend a prestigious academy, where they specialized in theoretical physics and classical literature. It was during these years that they developed their unique interdisciplinary approach, believing that true understanding emerged from the synthesis of diverse fields. Their professors often spoke of their unparalleled ability to connect seemingly disparate concepts, weaving them into a coherent and compelling narrative.
           </p>
@@ -91,6 +117,14 @@ const Biography = () => {
 
         <section id="career-achievements" className="mb-16" ref={(el) => (sectionRefs.current["career-achievements"] = el)}>
           <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Career and Major Achievements</h2>
+          {sectionImages["career-achievements"] && (
+            <img
+              src={sectionImages["career-achievements"].src}
+              alt={sectionImages["career-achievements"].alt}
+              className="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer mb-6 transition-transform duration-300 hover:scale-[1.01]"
+              onClick={() => handleImageClick(sectionImages["career-achievements"])}
+            />
+          )}
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             Upon completing their education, they embarked on a career that would redefine their field. Their groundbreaking research in quantum mechanics led to several paradigm shifts, earning them international acclaim and numerous accolades, including the coveted Nobel Prize. Yet, they remained humble, always attributing their success to collaborative efforts and the support of their peers.
           </p>
@@ -102,17 +136,16 @@ const Biography = () => {
           </p>
         </section>
 
-        {/* New Image Gallery Section */}
-        <section id="visual-journey" className="mb-16" ref={(el) => (sectionRefs.current["visual-journey"] = el)}>
-          <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">A Visual Journey</h2>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
-            Explore key moments and inspirations from their life through a curated collection of images.
-          </p>
-          <ImageGallery images={images} />
-        </section>
-
         <section id="later-life-legacy" className="mb-16" ref={(el) => (sectionRefs.current["later-life-legacy"] = el)}>
           <h2 className="text-4xl font-serif font-semibold mb-6 text-gray-800 dark:text-gray-200">Later Life and Legacy</h2>
+          {sectionImages["later-life-legacy"] && (
+            <img
+              src={sectionImages["later-life-legacy"].src}
+              alt={sectionImages["later-life-legacy"].alt}
+              className="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer mb-6 transition-transform duration-300 hover:scale-[1.01]"
+              onClick={() => handleImageClick(sectionImages["later-life-legacy"])}
+            />
+          )}
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
             In their later years, they retreated from the public eye, choosing to spend their time mentoring young scholars and writing philosophical treatises. Their memoirs, published posthumously, offered profound insights into their journey, their struggles, and their ultimate triumphs. They passed away peacefully, leaving behind a legacy that continues to inspire generations.
           </p>
@@ -122,6 +155,15 @@ const Biography = () => {
         </section>
         <MadeWithDyad />
       </div>
+
+      {selectedImageForModal && (
+        <ImageModal
+          src={selectedImageForModal.src}
+          alt={selectedImageForModal.alt}
+          open={isModalOpen}
+          onOpenChange={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };
