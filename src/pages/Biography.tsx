@@ -129,7 +129,7 @@ const Biography = () => {
       {/* Main Biography Content */}
       <div className="lg:col-span-1">
         <h1 className="text-6xl font-serif font-bold text-center mb-12 text-gray-900 dark:text-gray-100 leading-tight">
-          The Life of a Remarkable Individual
+          NG QI HENG Biography
         </h1>
 
         {biographySections.map((section, index) => (
