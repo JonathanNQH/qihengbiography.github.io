@@ -155,68 +155,204 @@ const Biography = () => {
                 </div>
               )}
               <div className="md:w-1/2">
-                {/* Placeholder text - replace with actual content for each section */}
                 {section.id === "personal-introduction" && (
                   <>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      Welcome to my personal biography. I am a passionate individual dedicated to continuous learning and making a positive impact. My journey has been shaped by diverse experiences and a relentless pursuit of knowledge.
+                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                      NG QI HENG <br />
+                      Kulai, Johor <br />
+                      (+60)137898823 · ngqiheng88@gmail.com
                     </p>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Summary</h3>
                     <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                      I believe in the power of collaboration and innovation to solve complex challenges and drive meaningful change in the world.
+                      I am a Computer Science undergraduate with great knowledge and interest in software development, algorithms, and database systems by using Java, Python, PHP and web technologies. Obsessed in exploring AI tools, Agentic AI, Machine Learning, Deep Learning and certain new technologies.
                     </p>
                   </>
                 )}
                 {section.id === "profession-skills" && (
                   <>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      My professional background spans several dynamic fields, where I've honed a versatile skill set. I specialize in [mention a key profession/area, e.g., software development, project management, creative design] with a strong foundation in [mention 2-3 core skills, e.g., problem-solving, strategic planning, communication].
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                      I am proficient in [list specific tools/technologies, e.g., React, TypeScript, Agile methodologies] and constantly seek to expand my expertise through new challenges.
-                    </p>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Technical Skills</h3>
+                    <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                      <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+                      <li>Canva</li>
+                      <li>Figma</li>
+                      <li>MySQL</li>
+                      <li>PHP</li>
+                      <li>HTML</li>
+                      <li>Java</li>
+                      <li>CSS</li>
+                      <li>Python</li>
+                      <li>JupyterLab</li>
+                      <li>Matlab</li>
+                      <li>ArduinoIDE</li>
+                    </ul>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Languages</h3>
+                    <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                      <li>English: Fluent</li>
+                      <li>Malay: Fluent</li>
+                      <li>Mandarin: Fluent</li>
+                      <li>French: Beginner</li>
+                    </ul>
                   </>
                 )}
                 {section.id === "experience" && (
                   <>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      Throughout my career, I've had the privilege of working on impactful projects and contributing to various organizations. My experience includes [mention a key role/achievement, e.g., leading a cross-functional team to launch a successful product, optimizing operational workflows, developing innovative solutions].
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      Each role has provided valuable lessons in leadership, adaptability, and delivering results in fast-paced environments. I thrive on challenges that push the boundaries of what's possible.
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                      I am particularly proud of [mention a specific project or outcome, e.g., increasing user engagement by X%, streamlining a critical process, mentoring junior colleagues].
-                    </p>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Work Experience</h3>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Café Waiter <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2018</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Take order, casher, clean the table after used.</li>
+                        <li>Understand customer needs, and customize the order based on the requirements.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Baby Car Seat Promoter <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2019</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Promote car seat to customers based on the car model and capacity.</li>
+                        <li>Understand user age, circumstances, and budget.</li>
+                        <li>Suggest suitable and customize model to customer and install on their car.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Factory Production Operator (BERICAP Sdn Bhd) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2020</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Learn procedure to operate a production line based on the machine specification.</li>
+                        <li>Solve the congestion when the machine production line is stuck.</li>
+                        <li>Assemble the product and pack it into pallet to transport.</li>
+                        <li>Refill the raw material when the machine is running out of materials to produce.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Dessert Shop Waiter <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2021</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Serve the dessert to the customer according to the dessert set they purchased.</li>
+                        <li>Ensure the materials always enough before the day start.</li>
+                      </ul>
+                    </div>
                   </>
                 )}
                 {section.id === "involvement" && (
                   <>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      Beyond my professional work, I am actively involved in community initiatives and volunteer efforts. I believe in giving back and contributing to causes that resonate with my values. My involvement includes [mention a type of involvement, e.g., volunteering at local charities, participating in industry mentorship programs, contributing to open-source projects].
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                      These experiences have enriched my perspective and allowed me to connect with diverse groups of people, fostering a sense of shared purpose and collective growth.
-                    </p>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Curricular Activity</h3>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Reserve Officer Training Unit (ROTU) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2023 - Present</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Been through three years training as an Air force reserve officer cadet.</li>
+                        <li>Follow the orders strictly and execute it with full of compliance.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Malaysia Independence Day Parade in Putrajaya Square <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">31st August 2025</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Performed in the form of a parade to pay respect to national leaders and royalty.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Facilitator in TVET Camp Programme – SK Taman Bukit Maluri <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">September 2025</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Assisted in delivering STEM and TVET workshops to primary students, encourage and enlighten students to involve in the technical field and innovation.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Participant in Semarak Patriotik Programme for Higher Education Institutions (IPT) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2022</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Performed a patriotic dance in the national-level program to encourage and foster patriotism among higher education students.</li>
+                      </ul>
+                    </div>
                   </>
                 )}
                 {section.id === "qualification" && (
                   <>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      My academic background and certifications provide a strong foundation for my expertise. I hold a [mention degree, e.g., Bachelor's in Computer Science, Master's in Business Administration] from [mention institution].
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                      Additionally, I have obtained certifications in [list relevant certifications, e.g., Project Management Professional (PMP), AWS Certified Developer, UX/UI Design Specialist], demonstrating my commitment to continuous professional development.
-                    </p>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Education</h3>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Bachelor of Computer Science (Artificial Intelligence) with Honour <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2023 - Present</span></p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">National Defence University of Malaysia (NDUM), Kuala Lumpur</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>CGPA: 3.84</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Foundation in Engineering and Technology <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2022</span></p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">National Defence University of Malaysia (NDUM), Kuala Lumpur</p>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Sijil Pelajaran Malaysia (SPM) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2021</span></p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">SMK Sultan Ibrahim, Kulai, Johor.</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>6A, 3B, 1C</li>
+                      </ul>
+                    </div>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Certificates</h3>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">MATLAB@UCL</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>MATLAB Onramp</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">TOP CODERS</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Completion of the Top Coders Malaysia 2025 Coding Challenge Pre Competition Workshop on Python Programming Fundamentals</li>
+                      </ul>
+                    </div>
                   </>
                 )}
                 {section.id === "self-development" && (
                   <>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                      Self-development is a cornerstone of my personal and professional philosophy. I am constantly seeking opportunities to learn new skills, explore emerging technologies, and refine my understanding of the world. This includes [mention a self-development activity, e.g., regularly attending workshops and conferences, reading extensively on various subjects, practicing mindfulness and meditation].
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                      I am a firm believer that growth is a lifelong journey, and I embrace every opportunity to evolve and improve.
-                    </p>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Achievements & Recognition</h3>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">4th Place in Top Coders Coding Challenge 2024 organized by Data Science Association <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2024</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Top five cases Solver</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Bronze Medal Innovation In Teaching and Learning Expo (INTELEX) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2024</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Tax Declaration System (TaxPro) on GUI Design.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Gold Medal Pre-University Matriculation Innovation Competition (PITRAM) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2023</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Project of topic ‘Biodegradable Plastic’.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Gold Medal Pusat Asasi Pertahanan Innovation Competition 2022 (PAPIC) <span className="text-base font-normal text-gray-600 dark:text-gray-400 float-right">2022</span></p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Project of topic ‘Biodegradable Plastic’.</li>
+                      </ul>
+                    </div>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-gray-800 dark:text-gray-200">Projects</h3>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Automated External Defibrillator (AED) Usage and Maintenance Monitor System</p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-2">JavaScript | HTML | CSS | Node.js</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Developed a smart and easy access system to approach the AED service in the surrounding of any circumstances.</li>
+                        <li>Organize administrative on AED’s management and maintenance to ensure the condition and readiness of AED.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Database Management System – Book Ordering System</p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-2">Java | PHP | MySQL | HTML</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Create database connect to the frontend interface to provide user services.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Student Check IN & OUT system</p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-2">Java</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Developed a data entry system for student to enter their matric number and record in the system whenever they went out or in the campus.</li>
+                      </ul>
+                    </div>
+                    <div className="mb-6">
+                      <p className="font-semibold text-xl text-gray-800 dark:text-gray-200">Tax Declaration System GUI Design and Modelling</p>
+                      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-2">Figma</p>
+                      <ul className="list-disc list-inside text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <li>Interactive and interesting user interface design to enhance the declaration system and reduce the manual processing.</li>
+                      </ul>
+                    </div>
                   </>
                 )}
               </div>
