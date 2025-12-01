@@ -3,8 +3,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import TableOfContents from "@/components/TableOfContents";
 import MobileMenu from "@/components/MobileMenu";
-import ProfileImage from "@/components/ProfileImage"; // Import the new ProfileImage component
-import { cn } from "@/lib/utils"; // Import cn for conditional class names
+import ProfileImage from "@/components/ProfileImage";
+import ExperienceImage from "@/components/ExperienceImage"; // Import the new ExperienceImage component
+import { cn } from "@/lib/utils";
 
 
 const biographySections = [
@@ -94,10 +95,10 @@ const Biography = () => {
             )}>
               {section.id === "personal-introduction" && (
                 <div className="md:w-1/3 flex justify-center">
-                  <ProfileImage src="/profile.png" alt="NG QI HENG Profile" /> {/* Updated to use the new image */}
+                  <ProfileImage src="/profile.png" alt="NG QI HENG Profile" />
                 </div>
               )}
-              <div className={cn("md:w-full", section.id === "personal-introduction" && "md:w-2/3")}> {/* Adjusted width for personal intro */}
+              <div className={cn("md:w-full", section.id === "personal-introduction" && "md:w-2/3")}>
                 {section.id === "personal-introduction" && (
                   <>
                     <p className="text-lg leading-relaxed text-muted-foreground mb-4">
@@ -140,12 +141,15 @@ const Biography = () => {
                 {section.id === "experience" && (
                   <>
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Work Experience</h3>
-                    <div className="mb-6">
-                      <p className="font-semibold text-xl text-foreground">Café Waiter <span className="text-base font-normal text-muted-foreground float-right">2018</span></p>
-                      {renderBulletPoints([
-                        "Take order, casher, clean the table after used.",
-                        "Understand customer needs, and customize the order based on the requirements.",
-                      ])}
+                    <div className="mb-6 flex items-center gap-4"> {/* Added flex and gap for image */}
+                      <ExperienceImage src="/cafe-waiter.png" alt="Cafe Waiter" />
+                      <div>
+                        <p className="font-semibold text-xl text-foreground">Café Waiter <span className="text-base font-normal text-muted-foreground float-right">2018</span></p>
+                        {renderBulletPoints([
+                          "Take order, casher, clean the table after used.",
+                          "Understand customer needs, and customize the order based on the requirements.",
+                        ])}
+                      </div>
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Baby Car Seat Promoter <span className="text-base font-normal text-muted-foreground float-right">2019</span></p>
