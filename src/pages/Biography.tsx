@@ -21,7 +21,7 @@ const biographySections = [
 ];
 
 const sectionImages: { [key: string]: ImageItem } = {
-  "personal-introduction": { src: "https://picsum.photos/id/237/600/400", alt: "Personal Introduction" },
+  "personal-introduction": { src: "/images/ng-qi-heng-passport.png", alt: "NG QI HENG Passport Photo" },
   "profession-skills": { src: "https://picsum.photos/id/1018/600/400", alt: "Profession & Skills" },
   "experience": { src: "https://picsum.photos/id/1040/600/400", alt: "Experience" },
   "involvement": { src: "https://picsum.photos/id/1074/600/400", alt: "Involvement" },
