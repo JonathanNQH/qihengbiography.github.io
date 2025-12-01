@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import TableOfContents from "@/components/TableOfContents";
 import MobileMenu from "@/components/MobileMenu";
+import ProfileImage from "@/components/ProfileImage"; // Import the new ProfileImage component
 import { cn } from "@/lib/utils"; // Import cn for conditional class names
 
 
@@ -88,10 +89,15 @@ const Biography = () => {
           <section key={section.id} id={section.id} className="mb-16" ref={(el) => (sectionRefs.current[section.id] = el)}>
             <h2 className="text-4xl font-serif font-semibold mb-6 text-primary">{section.title}</h2>
             <div className={cn(
-              "flex flex-col md:flex-row items-start gap-8",
+              "flex flex-col items-center md:flex-row md:items-start gap-8", // Adjusted for image and text layout
               index % 2 === 1 ? "md:flex-row-reverse" : "" // Alternate image/text order
             )}>
-              <div className="md:w-full"> {/* Adjusted to full width */}
+              {section.id === "personal-introduction" && (
+                <div className="md:w-1/3 flex justify-center">
+                  <ProfileImage src="/placeholder.svg" alt="NG QI HENG Profile" /> {/* Placeholder image */}
+                </div>
+              )}
+              <div className={cn("md:w-full", section.id === "personal-introduction" && "md:w-2/3")}> {/* Adjusted width for personal intro */}
                 {section.id === "personal-introduction" && (
                   <>
                     <p className="text-lg leading-relaxed text-muted-foreground mb-4">
