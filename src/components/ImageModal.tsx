@@ -13,7 +13,7 @@ interface ImageModalProps {
 const ImageModal: React.FC<ImageModalProps> = ({ src, alt, open, onOpenChange }) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] p-0 border-none bg-transparent shadow-none">
+      <DialogContent className="max-w-[90vw] p-0 border-none bg-transparent shadow-none">
         <img src={src} alt={alt} className="max-h-[90vh] w-full object-contain rounded-lg" />
       </DialogContent>
     </Dialog>
