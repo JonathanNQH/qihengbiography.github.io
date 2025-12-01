@@ -197,10 +197,22 @@ const Biography = () => {
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Curricular Activity</h3>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Reserve Officer Training Unit (ROTU) <span className="text-base font-normal text-muted-foreground float-right">2023 - Present</span></p>
-                      {renderBulletPoints([
-                        "Been through three years training as an Air force reserve officer cadet.",
-                        "Follow the orders strictly and execute it with full of compliance.",
-                      ])}
+                      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 my-4">
+                        <div className="flex-shrink-0">
+                          <img
+                            src="/rotu.jpg"
+                            alt="Reserve Officer Training Unit (ROTU)"
+                            className="w-48 h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+                            onClick={() => openImageModal("/rotu.jpg", "Reserve Officer Training Unit (ROTU)")}
+                          />
+                        </div>
+                        <div className="flex-grow">
+                          {renderBulletPoints([
+                            "Been through three years training as an Air force reserve officer cadet.",
+                            "Follow the orders strictly and execute it with full of compliance.",
+                          ])}
+                        </div>
+                      </div>
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Malaysia Independence Day Parade in Putrajaya Square <span className="text-base font-normal text-muted-foreground float-right">31st August 2025</span></p>
