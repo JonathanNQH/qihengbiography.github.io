@@ -116,6 +116,19 @@ const Biography = () => {
     };
   }, []);
 
+  const renderBulletPoints = (items: string[]) => (
+    <ul className="list-none p-0 space-y-2">
+      {items.map((item, i) => (
+        <li
+          key={i}
+          className="bg-card text-card-foreground border border-border rounded-md p-3 transition-colors duration-200 hover:bg-primary hover:text-primary-foreground"
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 font-sans">
       {/* Mobile Menu for small screens */}
@@ -134,7 +147,7 @@ const Biography = () => {
 
         {biographySections.map((section, index) => (
           <section key={section.id} id={section.id} className="mb-16" ref={(el) => (sectionRefs.current[section.id] = el)}>
-            <h2 className="text-4xl font-serif font-semibold mb-6 text-foreground">{section.title}</h2>
+            <h2 className="text-4xl font-serif font-semibold mb-6 text-primary">{section.title}</h2>
             <div className={cn(
               "flex flex-col md:flex-row items-start gap-8",
               index % 2 === 1 ? "md:flex-row-reverse" : "" // Alternate image/text order
@@ -171,27 +184,27 @@ const Biography = () => {
                 {section.id === "profession-skills" && (
                   <>
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Technical Skills</h3>
-                    <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground mb-4">
-                      <li>Microsoft Office (Word, Excel, PowerPoint)</li>
-                      <li>Canva</li>
-                      <li>Figma</li>
-                      <li>MySQL</li>
-                      <li>PHP</li>
-                      <li>HTML</li>
-                      <li>Java</li>
-                      <li>CSS</li>
-                      <li>Python</li>
-                      <li>JupyterLab</li>
-                      <li>Matlab</li>
-                      <li>ArduinoIDE</li>
-                    </ul>
-                    <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Languages</h3>
-                    <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                      <li>English: Fluent</li>
-                      <li>Malay: Fluent</li>
-                      <li>Mandarin: Fluent</li>
-                      <li>French: Beginner</li>
-                    </ul>
+                    {renderBulletPoints([
+                      "Microsoft Office (Word, Excel, PowerPoint)",
+                      "Canva",
+                      "Figma",
+                      "MySQL",
+                      "PHP",
+                      "HTML",
+                      "Java",
+                      "CSS",
+                      "Python",
+                      "JupyterLab",
+                      "Matlab",
+                      "ArduinoIDE",
+                    ])}
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground mt-6">Languages</h3>
+                    {renderBulletPoints([
+                      "English: Fluent",
+                      "Malay: Fluent",
+                      "Mandarin: Fluent",
+                      "French: Beginner",
+                    ])}
                   </>
                 )}
                 {section.id === "experience" && (
@@ -199,34 +212,34 @@ const Biography = () => {
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Work Experience</h3>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Café Waiter <span className="text-base font-normal text-muted-foreground float-right">2018</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Take order, casher, clean the table after used.</li>
-                        <li>Understand customer needs, and customize the order based on the requirements.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Take order, casher, clean the table after used.",
+                        "Understand customer needs, and customize the order based on the requirements.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Baby Car Seat Promoter <span className="text-base font-normal text-muted-foreground float-right">2019</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Promote car seat to customers based on the car model and capacity.</li>
-                        <li>Understand user age, circumstances, and budget.</li>
-                        <li>Suggest suitable and customize model to customer and install on their car.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Promote car seat to customers based on the car model and capacity.",
+                        "Understand user age, circumstances, and budget.",
+                        "Suggest suitable and customize model to customer and install on their car.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Factory Production Operator (BERICAP Sdn Bhd) <span className="text-base font-normal text-muted-foreground float-right">2020</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Learn procedure to operate a production line based on the machine specification.</li>
-                        <li>Solve the congestion when the machine production line is stuck.</li>
-                        <li>Assemble the product and pack it into pallet to transport.</li>
-                        <li>Refill the raw material when the machine is running out of materials to produce.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Learn procedure to operate a production line based on the machine specification.",
+                        "Solve the congestion when the machine production line is stuck.",
+                        "Assemble the product and pack it into pallet to transport.",
+                        "Refill the raw material when the machine is running out of materials to produce.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Dessert Shop Waiter <span className="text-base font-normal text-muted-foreground float-right">2021</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Serve the dessert to the customer according to the dessert set they purchased.</li>
-                        <li>Ensure the materials always enough before the day start.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Serve the dessert to the customer according to the dessert set they purchased.",
+                        "Ensure the materials always enough before the day start.",
+                      ])}
                     </div>
                   </>
                 )}
@@ -235,28 +248,28 @@ const Biography = () => {
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Curricular Activity</h3>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Reserve Officer Training Unit (ROTU) <span className="text-base font-normal text-muted-foreground float-right">2023 - Present</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Been through three years training as an Air force reserve officer cadet.</li>
-                        <li>Follow the orders strictly and execute it with full of compliance.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Been through three years training as an Air force reserve officer cadet.",
+                        "Follow the orders strictly and execute it with full of compliance.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Malaysia Independence Day Parade in Putrajaya Square <span className="text-base font-normal text-muted-foreground float-right">31st August 2025</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Performed in the form of a parade to pay respect to national leaders and royalty.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Performed in the form of a parade to pay respect to national leaders and royalty.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Facilitator in TVET Camp Programme – SK Taman Bukit Maluri <span className="text-base font-normal text-muted-foreground float-right">September 2025</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Assisted in delivering STEM and TVET workshops to primary students, encourage and enlighten students to involve in the technical field and innovation.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Assisted in delivering STEM and TVET workshops to primary students, encourage and enlighten students to involve in the technical field and innovation.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Participant in Semarak Patriotik Programme for Higher Education Institutions (IPT) <span className="text-base font-normal text-muted-foreground float-right">2022</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Performed a patriotic dance in the national-level program to encourage and foster patriotism among higher education students.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Performed a patriotic dance in the national-level program to encourage and foster patriotism among higher education students.",
+                      ])}
                     </div>
                   </>
                 )}
@@ -266,9 +279,9 @@ const Biography = () => {
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Bachelor of Computer Science (Artificial Intelligence) with Honour <span className="text-base font-normal text-muted-foreground float-right">2023 - Present</span></p>
                       <p className="text-lg leading-relaxed text-muted-foreground">National Defence University of Malaysia (NDUM), Kuala Lumpur</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>CGPA: 3.84</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "CGPA: 3.84",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Foundation in Engineering and Technology <span className="text-base font-normal text-muted-foreground float-right">2022</span></p>
@@ -277,22 +290,22 @@ const Biography = () => {
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Sijil Pelajaran Malaysia (SPM) <span className="text-base font-normal text-muted-foreground float-right">2021</span></p>
                       <p className="text-lg leading-relaxed text-muted-foreground">SMK Sultan Ibrahim, Kulai, Johor.</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>6A, 3B, 1C</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "6A, 3B, 1C",
+                      ])}
                     </div>
-                    <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Certificates</h3>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground mt-6">Certificates</h3>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">MATLAB@UCL</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>MATLAB Onramp</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "MATLAB Onramp",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">TOP CODERS</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Completion of the Top Coders Malaysia 2025 Coding Challenge Pre Competition Workshop on Python Programming Fundamentals</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Completion of the Top Coders Malaysia 2025 Coding Challenge Pre Competition Workshop on Python Programming Fundamentals",
+                      ])}
                     </div>
                   </>
                 )}
@@ -301,57 +314,57 @@ const Biography = () => {
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Achievements & Recognition</h3>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">4th Place in Top Coders Coding Challenge 2024 organized by Data Science Association <span className="text-base font-normal text-muted-foreground float-right">2024</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Top five cases Solver</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Top five cases Solver",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Bronze Medal Innovation In Teaching and Learning Expo (INTELEX) <span className="text-base font-normal text-muted-foreground float-right">2024</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Tax Declaration System (TaxPro) on GUI Design.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Tax Declaration System (TaxPro) on GUI Design.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Gold Medal Pre-University Matriculation Innovation Competition (PITRAM) <span className="text-base font-normal text-muted-foreground float-right">2023</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Project of topic ‘Biodegradable Plastic’.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Project of topic ‘Biodegradable Plastic’.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Gold Medal Pusat Asasi Pertahanan Innovation Competition 2022 (PAPIC) <span className="text-base font-normal text-muted-foreground float-right">2022</span></p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Project of topic ‘Biodegradable Plastic’.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Project of topic ‘Biodegradable Plastic’.",
+                      ])}
                     </div>
-                    <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Projects</h3>
+                    <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground mt-6">Projects</h3>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Automated External Defibrillator (AED) Usage and Maintenance Monitor System</p>
                       <p className="text-lg leading-relaxed text-muted-foreground mb-2">JavaScript | HTML | CSS | Node.js</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Developed a smart and easy access system to approach the AED service in the surrounding of any circumstances.</li>
-                        <li>Organize administrative on AED’s management and maintenance to ensure the condition and readiness of AED.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Developed a smart and easy access system to approach the AED service in the surrounding of any circumstances.",
+                        "Organize administrative on AED’s management and maintenance to ensure the condition and readiness of AED.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Database Management System – Book Ordering System</p>
                       <p className="text-lg leading-relaxed text-muted-foreground mb-2">Java | PHP | MySQL | HTML</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Create database connect to the frontend interface to provide user services.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Create database connect to the frontend interface to provide user services.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Student Check IN & OUT system</p>
                       <p className="text-lg leading-relaxed text-muted-foreground mb-2">Java</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Developed a data entry system for student to enter their matric number and record in the system whenever they went out or in the campus.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Developed a data entry system for student to enter their matric number and record in the system whenever they went out or in the campus.",
+                      ])}
                     </div>
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Tax Declaration System GUI Design and Modelling</p>
                       <p className="text-lg leading-relaxed text-muted-foreground mb-2">Figma</p>
-                      <ul className="list-disc list-inside text-lg leading-relaxed text-muted-foreground">
-                        <li>Interactive and interesting user interface design to enhance the declaration system and reduce the manual processing.</li>
-                      </ul>
+                      {renderBulletPoints([
+                        "Interactive and interesting user interface design to enhance the declaration system and reduce the manual processing.",
+                      ])}
                     </div>
                   </>
                 )}
