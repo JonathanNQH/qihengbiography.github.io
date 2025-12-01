@@ -82,39 +82,39 @@ const Biography = () => {
     };
   }, []);
 
-  // Effect for image visibility on scroll
-  useEffect(() => {
-    const imageObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setVisibleImages((prev) => ({
-            ...prev,
-            [entry.target.id]: entry.isIntersecting,
-          }));
-        });
-      },
-      {
-        threshold: 0.3, // Image becomes visible when 30% of it is in view
-        rootMargin: "0px 0px -100px 0px", // Adjust as needed for when it should appear
-      }
-    );
+  // Effect for image visibility on scroll - This effect is no longer needed without images
+  // useEffect(() => {
+  //   const imageObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         setVisibleImages((prev) => ({
+  //           ...prev,
+  //           [entry.target.id]: entry.isIntersecting,
+  //         }));
+  //       });
+  //     },
+  //     {
+  //       threshold: 0.3, // Image becomes visible when 30% of it is in view
+  //       rootMargin: "0px 0px -100px 0px", // Adjust as needed for when it should appear
+  //     }
+  //   );
 
-    biographySections.forEach((section) => {
-      const ref = imageRefs.current[section.id];
-      if (ref) {
-        imageObserver.observe(ref);
-      }
-    });
+  //   biographySections.forEach((section) => {
+  //     const ref = imageRefs.current[section.id];
+  //     if (ref) {
+  //       imageObserver.observe(ref);
+  //     }
+  //   });
 
-    return () => {
-      biographySections.forEach((section) => {
-        const ref = imageRefs.current[section.id];
-        if (ref) {
-          imageObserver.unobserve(ref);
-        }
-      });
-    };
-  }, []);
+  //   return () => {
+  //     biographySections.forEach((section) => {
+  //       const ref = imageRefs.current[section.id];
+  //       if (ref) {
+  //         imageObserver.unobserve(ref);
+  //       }
+  //     });
+  //   };
+  // }, []);
 
   const renderBulletPoints = (items: string[]) => (
     <ul className="list-none p-0 space-y-2">
@@ -145,29 +145,11 @@ const Biography = () => {
           NG QI HENG Biography
         </h1>
 
-        {biographySections.map((section, index) => (
+        {biographySections.map((section) => (
           <section key={section.id} id={section.id} className="mb-16" ref={(el) => (sectionRefs.current[section.id] = el)}>
             <h2 className="text-4xl font-serif font-semibold mb-6 text-primary">{section.title}</h2>
-            <div className={cn(
-              "flex flex-col md:flex-row items-start gap-8",
-              index % 2 === 1 ? "md:flex-row-reverse" : "" // Alternate image/text order
-            )}>
-              {sectionImages[section.id] && (
-                <div className="md:w-1/2 flex-shrink-0">
-                  <img
-                    id={section.id} // Add ID for image observer
-                    ref={(el) => (imageRefs.current[section.id] = el)}
-                    src={sectionImages[section.id].src}
-                    alt={sectionImages[section.id].alt}
-                    className={cn(
-                      "w-full h-64 object-cover rounded-lg shadow-md cursor-pointer transition-opacity duration-700 ease-in-out",
-                      visibleImages[section.id] ? "opacity-100" : "opacity-0"
-                    )}
-                    onClick={() => handleImageClick(sectionImages[section.id])}
-                  />
-                </div>
-              )}
-              <div className="md:w-1/2">
+            <div className="flex flex-col items-start gap-8"> {/* Removed md:flex-row and alternation */}
+              <div className="md:w-full"> {/* Changed to full width */}
                 {section.id === "personal-introduction" && (
                   <>
                     <p className="text-lg leading-relaxed text-muted-foreground mb-4">
@@ -374,14 +356,15 @@ const Biography = () => {
         ))}
       </div>
 
-      {selectedImageForModal && (
+      {/* ImageModal is no longer needed if there are no images to display in a modal */}
+      {/* {selectedImageForModal && (
         <ImageModal
           src={selectedImageForModal.src}
           alt={selectedImageForModal.alt}
           open={isModalOpen}
           onOpenChange={setIsModalOpen}
         />
-      )}
+      )} */}
     </div>
   );
 };
