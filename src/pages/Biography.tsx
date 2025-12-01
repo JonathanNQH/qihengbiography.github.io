@@ -11,7 +11,7 @@ const biographySections = [
   { id: "profession-skills", title: "Profession & Skills" },
   { id: "experience", title: "Experience" },
   { id: "involvement", title: "Involvement" },
-  { id: "qualification", title: "Qualification" },
+  { id: "qualification", "title": "Qualification" },
   { id: "self-development", title: "Self Development" },
 ];
 
@@ -97,7 +97,7 @@ const Biography = () => {
                     <p className="text-lg leading-relaxed text-muted-foreground mb-4">
                       NG QI HENG <br />
                       Kulai, Johor <br />
-                      (+60)137898823 · ngqiheng88@gmail.com
+                      <a href="tel:+60137898823" className="text-primary hover:underline">(+60)137898823</a> · <a href="mailto:ngqiheng88@gmail.com" className="text-primary hover:underline">ngqiheng88@gmail.com</a>
                     </p>
                     <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground">Summary</h3>
                     <p className="text-lg leading-relaxed text-muted-foreground">
