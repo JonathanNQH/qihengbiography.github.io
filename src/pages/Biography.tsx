@@ -82,12 +82,12 @@ const Biography = () => {
       <MobileMenu sections={biographySections} activeSectionId={activeSectionId} />
 
       {/* Table of Contents for larger screens */}
-      <div className="hidden lg:block sticky top-4 w-64 pr-8 pt-20">
-        <TableOfContents sections={biographySections} activeSectionId={activeSectionId} />
+      <div className="hidden lg:block sticky top-4 pr-8 pt-20 self-start"> {/* Removed w-64, added self-start */}
+        <TableOfContents sections={biographySections} activeSectionId={activeSectionId} className="w-full" />
       </div>
 
       {/* Main Biography Content */}
-      <div className="lg:col-span-1">
+      <div className="lg:col-start-2"> {/* Explicitly place in the second column */}
         <h1 className="text-6xl font-serif font-bold text-center mb-12 text-foreground leading-tight">
           Biography
         </h1>
