@@ -150,15 +150,15 @@ const Biography = () => {
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Café Waiter <span className="text-base font-normal text-muted-foreground float-right">2018</span></p>
                       <div className="flex flex-col md:flex-row items-center md:items-start gap-6 my-4">
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 md:w-1/2">
                           <img
                             src="/cafe-waiter.jpg"
                             alt="Cafe Waiter Experience"
-                            className="w-48 h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+                            className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
                             onClick={() => openImageModal("/cafe-waiter.jpg", "Cafe Waiter Experience")}
                           />
                         </div>
-                        <div className="flex-grow">
+                        <div className="flex-grow md:w-1/2">
                           {renderBulletPoints([
                             "Take order, casher, clean the table after used.",
                             "Understand customer needs, and customize the order based on the requirements.",
@@ -198,15 +198,15 @@ const Biography = () => {
                     <div className="mb-6">
                       <p className="font-semibold text-xl text-foreground">Reserve Officer Training Unit (ROTU) <span className="text-base font-normal text-muted-foreground float-right">2023 - Present</span></p>
                       <div className="flex flex-col md:flex-row items-center md:items-start gap-6 my-4">
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 md:w-1/2">
                           <img
                             src="/rotu.jpg"
                             alt="Reserve Officer Training Unit (ROTU)"
-                            className="w-48 h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+                            className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
                             onClick={() => openImageModal("/rotu.jpg", "Reserve Officer Training Unit (ROTU)")}
                           />
                         </div>
-                        <div className="flex-grow">
+                        <div className="flex-grow md:w-1/2">
                           {renderBulletPoints([
                             "Been through three years training as an Air force reserve officer cadet.",
                             "Follow the orders strictly and execute it with full of compliance.",
@@ -331,15 +331,15 @@ const Biography = () => {
                       <p className="font-semibold text-xl text-foreground">Team Building</p>
                       <p className="text-lg leading-relaxed text-muted-foreground mb-2">Collaboration | Leadership</p>
                       <div className="flex flex-col md:flex-row items-center md:items-start gap-6 my-4">
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 md:w-1/2">
                           <img
                             src="/team-building.jpg"
                             alt="Team Building Activity"
-                            className="w-64 h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+                            className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
                             onClick={() => openImageModal("/team-building.jpg", "Team Building Activity")}
                           />
                         </div>
-                        <div className="flex-grow">
+                        <div className="flex-grow md:w-1/2">
                           {renderBulletPoints([
                             "Participated in team-building activities to foster collaboration and leadership skills.",
                             "Worked effectively in a group to achieve common goals and solve challenges.",
