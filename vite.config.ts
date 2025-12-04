@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig(({ command }) => {
-  const base = command === 'build' ? '/YOUR_REPO_NAME/' : '/'; // IMPORTANT: Replace YOUR_REPO_NAME with your actual GitHub repository name (e.g., 'my-portfolio-site')
+  const base = command === 'build' ? '/' : '/'; // Set base to '/' for user page sites like username.github.io
 
   return {
     base: base,
