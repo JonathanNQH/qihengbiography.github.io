@@ -5,6 +5,7 @@ import TableOfContents from "@/components/TableOfContents";
 import MobileMenu from "@/components/MobileMenu";
 import ProfileImage from "@/components/ProfileImage";
 import ImageModal from "@/components/ImageModal";
+import Logo from "@/components/Logo"; // Import the new Logo component
 import { cn } from "@/lib/utils";
 
 
@@ -88,6 +89,7 @@ const Biography = () => {
 
       {/* Main Biography Content */}
       <div className="lg:col-start-2"> {/* Explicitly place in the second column */}
+        <Logo className="mb-8" /> {/* Added the Logo component here */}
         <h1 className="text-6xl font-serif font-bold text-center mb-12 text-foreground leading-tight">
           Biography
         </h1>
